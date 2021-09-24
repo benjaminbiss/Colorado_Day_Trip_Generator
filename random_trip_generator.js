@@ -1,14 +1,10 @@
-//Day Trip Generator for Colorado
-
 // List of modes of transportation
 let travelType = ['drive', 'take a taxi', 'ride a bike', 'taking a bus', 'take the Light Rail'];
 
 // List of locations for the vacation
-    // Dependant on mode of travel
 let destination = ['Denver', 'Vail', 'Colorado Springs', 'Boulder', 'Fort Collins', 'Loveland', 'Winter Park', 'Glenwood Springs'];
 
-// List of restaurants
-    // Dependant on location
+// List of restaurants in a given city
 let denverRestaurants = ['Frasca Food & Wine', 'Blackbelly', 'Dry Storage', 'Kiké’s Red Tacos', 'The Ginger Pig', "The Wolf's Tailor"];
 let vailRestaurants = ['Drunken Goat', 'The Craftsman', 'The Rose', 'Village Bagel', 'Wyld', 'Vin 48'];
 let coloradoSpringsRestaurants = ['Slice 420', 'Carlos Bistro', 'Marigold Cafe & Bakery', 'Work in Work Out', 'Josh and John Naturally', 'The Rabbit Hole'];
@@ -18,8 +14,7 @@ let lovelandRestaurants = ['Arte Pizzaria', "Blocky's Eatery", "Nordy's Bar-B-Qu
 let winterParkRestaurants = ["Carrie's Winter Park Cafe", 'Viet-Nomz', "Antonella's Pizzeria", 'Bosphorous Turkish Cuisine', 'Winter Park Fish Company', 'The Wine Room on Park Ave'];
 let glenwoodSpringsRestaurants = ['Chomps Deli', "Russo's Pizza & Wings", 'Riviera Scratch Kitchen', 'Slope & Hatch', 'Sweet Coloradough', 'The Pullman'];
 
-// List of enertainment activities 
-    // Dependant on location
+// List of enertainment activities available in a given city
 let denverActivities = ['in Larimer Square', 'at a concert at Red Rocks Amphitheatre', 'hiking at Red Rocks Park', 'playing tennis at Washington Park', 'shopping on 16th Street Mall', 'at the Denver Zoo'];
 let vailActivities = ['walking around Betty Ford Alpine Gardens', 'hiking at Booth Falls Trail', 'skiing at Vail Ski Resort', 'biking and exploring the Vail Pass Bike Tour area', 'jeeping at Upper Piney Lake', 'horse-back riding at Vail Stables'];
 let coloradoSpringsActivities = ['rock climbing at Garden of the Gods', 'on a Jeep Tour through the Garden of the Gods foothills', 'at the observatory on Pikes Peak', 'on a Zipline Tour in Seven Falls', 'at the Cheyenne Mountain Zoo', 'at the National Museum of World War II Aviation'];
@@ -46,13 +41,14 @@ function generateTrip() {
     while (changeTravel !== 'YES') {
         pickedTravel = chooseAtRandom(travelType);
         alert(`You will ${pickedTravel} to your destination.`);
-        changeTravel = prompt("Type 'YES' to confirm the selection and continue to your destination.");
+        changeTravel = prompt("Type 'YES' to confirm the selection and continue to a random destination.");
     }
+
     let changeDestination;
     while (changeDestination !== "YES") {
         pickedDesitnation = chooseAtRandom(destination);
-        alert(`Your destination will be ${pickedDesitnation}!`);
-        changeDestination = prompt("Type 'YES' to confirm the selection and continue to your restraunt.")
+        alert(`You will be traveling to ${pickedDesitnation}!`);
+        changeDestination = prompt("Type 'YES' to confirm the selection and continue to a random restraunt.")
     }
     
     let changeRestaurant;
@@ -84,7 +80,7 @@ function generateTrip() {
                 break;
         }
         alert(`You will eat at ${pickedRestaurant} in ${pickedDesitnation}!`);
-        changeRestaurant = prompt("Type 'YES' to confirm your selection and continue to your form of entertainment.")
+        changeRestaurant = prompt("Type 'YES' to confirm your selection and continue to a random form of entertainment.")
     }
     
     let changeActivity;
@@ -115,9 +111,11 @@ function generateTrip() {
                 pickedActivity = chooseAtRandom(glenwoodSpringsActivities);
                 break;
         }
+
         alert(`You will be spending the day ${pickedActivity}!`);
         changeActivity = prompt("Type 'YES' to confirm your selection and see you results for your planned trip.")
     }
+    
     console.log(`A day trip in Colorado just for you! You should ${pickedTravel} to ${pickedDesitnation} to eat at ${pickedRestaurant} and spending the day ${pickedActivity}!`);
     alert(`A day trip in Colorado just for you! You should ${pickedTravel} to ${pickedDesitnation} to eat at ${pickedRestaurant} and spending the day ${pickedActivity}!`);
 }
